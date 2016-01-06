@@ -153,5 +153,73 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     }
     
     // MARK:- 指令/数据的发送
+    // MARK:指令——同步指令
+    func sendSyncCommandToPeriphreal(periphreal: CBPeripheral) {
+        var cmd: M2DControlSyncRequestCommand!
+        cmd.startBit = HNStartBitDA
+        cmd.cmd      = HNM2DCommands.HN_COMMAND_SYNC_REQUEST.rawValue
+        cmd.content  = 0x00
+        cmd.reserved = 0x00
+        cmd.checksum = HNChecksumChar88
+    }
+    
+    // MARK:指令——亮度控制指令
+    func setupLights(lightIdentifiers: [String]!, brightnessValue: UInt8) {
+        
+        // 获取要发送指令的所有设备
+        let periphreals = self.getPeriphrealsThroughlightIdentifiers(lightIdentifiers)
+        
+        // 遍历设备，发送指令
+        for peripheral in periphreals {
+            // 包装指令(数据)
+            var cmd: M2DControlBrightnessCommand!
+            cmd.startBit        = HNStartBitDA
+            cmd.cmd             = HNM2DCommands.HN_COMMAND_BRIGHTNESS.rawValue
+            cmd.brightnessValue = brightnessValue
+            cmd.reserved        = 0x00
+            cmd.checksum        = HNChecksumChar55
+            let brightnessData = NSData.init(bytes: &cmd, length: sizeof(M2DControlBrightnessCommand))
+            
+            // 获取"数据写入特征"
+            let dataInCharacteristic = self.getDataInCharacteristicFormPeriphreal(peripheral)
+            
+            // 发送数据给硬件
+            peripheral.writeValue(brightnessData, forCharacteristic: dataInCharacteristic, type: CBCharacteristicWriteType.WithoutResponse)
+        
+        }
+    }
+    
+    func setupLights(lightIdentifiers: [String]!, colorR: UInt8, colorG: UInt8, colorB: UInt8) {
+    
+    }
+    
+
+    // MARK:获取需要发送指令的设备的Help Method
+    func getPeriphrealsThroughlightIdentifiers(lightIdentifiers: [String]!) -> [CBPeripheral] {
+        var periphreals: [CBPeripheral]!
+        for peripheral in connectedPeripherals {
+            for lightIdentifier in lightIdentifiers {
+                if lightIdentifier == peripheral.identifier.UUIDString {
+                    periphreals.append(peripheral)
+                }
+            }
+        }
+        return periphreals
+    }
+    
+    // MARK:获取对应设备"数据写入特征"的Help Method
+    func getDataInCharacteristicFormPeriphreal(periphreal: CBPeripheral) -> CBCharacteristic {
+        var dataInCharacteristic: CBCharacteristic!
+        for service in periphreal.services! {
+            if service.UUID == kIUL11ServiceUUID {
+                for characteristic in service.characteristics! {
+                    if characteristic.UUID == kCharacteristicDataInUUID {
+                        dataInCharacteristic = characteristic
+                    }
+                }
+            }
+        }
+        return dataInCharacteristic
+    }
 
 }

@@ -20,7 +20,7 @@ let HNChecksumChar9A: UInt8 = 0x9A
 
 // MARK:- DEVICE COMMAND CODE
 // MOBILE2DEVICE
-enum HNM2DCommands: Int8 {
+enum HNM2DCommands: UInt8 {
     /// 亮度控制指令
    case HN_COMMAND_BRIGHTNESS   = 0x10
     /// 颜色控制指令
