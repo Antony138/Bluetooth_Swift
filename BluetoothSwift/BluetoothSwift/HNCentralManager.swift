@@ -22,16 +22,16 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     
     // MARK:- Properties/属性
     /// CBCentralManager对象
-    var bleManager: CBCentralManager!
+    private var bleManager: CBCentralManager!
     
     /// 要将发现的设备放入数组,否则链接不了
-    var discoverPeripherals = [CBPeripheral]()
+    private var discoverPeripherals = [CBPeripheral]()
     
     /// 已链接的设备,保存到数组(发送指令的时候要根据不同的设备发送)
     var connectedPeripherals = [CBPeripheral]()
     
     /// 计时器(扫描5秒)
-    var scanTimer: NSTimer!
+    private var scanTimer: NSTimer!
     
     
     // MARK:- Create Sinaleton/创建单例
@@ -134,16 +134,16 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     
     func peripheralDidUpdateName(peripheral: CBPeripheral) {
         print("设备的名字被修改了")
-        // TODO:根据设备UUID,更新IUL11 UI(数据模型)的名字
+        // TODO:设备名更新,更新数据模型;发送通知.(根据设备UUID)
     }
     
     func peripheral(peripheral: CBPeripheral, didUpdateNotificationStateForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
         print("didUpdate_Notification_StateForCharacteristic")
-        // TODO:用硬件返回的数据:characteristic的value(0x13指令),更新Light值
+        // TODO:用硬件返回的数据:characteristic的value(0x13指令),更新Light值(数据模型)
     }
     
     // MARK:- 计时结束,链接设备
-    func shouldConnectDevices() {
+    private func shouldConnectDevices() {
         if discoverPeripherals.count > 0 {
             print("扫描5秒结束,扫描到\(discoverPeripherals.count)个设备,开始链接")
             for peripheral in discoverPeripherals {
@@ -151,5 +151,7 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
             }
         }
     }
+    
+    // MARK:- 指令/数据的发送
 
 }

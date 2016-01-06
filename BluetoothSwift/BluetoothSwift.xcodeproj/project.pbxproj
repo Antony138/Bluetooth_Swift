@@ -15,6 +15,7 @@
 		CF1A30451C3B98AC002D85B6 /* BluetoothSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30441C3B98AC002D85B6 /* BluetoothSwiftTests.swift */; };
 		CF1A30501C3B98AC002D85B6 /* BluetoothSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A304F1C3B98AC002D85B6 /* BluetoothSwiftUITests.swift */; };
 		CF1A30601C3B9A39002D85B6 /* HNCentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A305F1C3B9A39002D85B6 /* HNCentralManager.swift */; };
+		CF1A30A51C3CF904002D85B6 /* HNBaseCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30A41C3CF904002D85B6 /* HNBaseCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		CF1A304F1C3B98AC002D85B6 /* BluetoothSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothSwiftUITests.swift; sourceTree = "<group>"; };
 		CF1A30511C3B98AC002D85B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF1A305F1C3B9A39002D85B6 /* HNCentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNCentralManager.swift; sourceTree = "<group>"; };
+		CF1A30A41C3CF904002D85B6 /* HNBaseCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNBaseCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		CF1A302E1C3B98AC002D85B6 /* BluetoothSwift */ = {
 			isa = PBXGroup;
 			children = (
+				CF1A30A41C3CF904002D85B6 /* HNBaseCommand.swift */,
 				CF1A305F1C3B9A39002D85B6 /* HNCentralManager.swift */,
 				CF1A302F1C3B98AC002D85B6 /* AppDelegate.swift */,
 				CF1A30311C3B98AC002D85B6 /* ViewController.swift */,
@@ -261,6 +264,7 @@
 			files = (
 				CF1A30321C3B98AC002D85B6 /* ViewController.swift in Sources */,
 				CF1A30601C3B9A39002D85B6 /* HNCentralManager.swift in Sources */,
+				CF1A30A51C3CF904002D85B6 /* HNBaseCommand.swift in Sources */,
 				CF1A30301C3B98AC002D85B6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,6 +494,7 @@
 				CF1A30561C3B98AC002D85B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF1A30571C3B98AC002D85B6 /* Build configuration list for PBXNativeTarget "BluetoothSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +503,7 @@
 				CF1A30591C3B98AC002D85B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF1A305A1C3B98AC002D85B6 /* Build configuration list for PBXNativeTarget "BluetoothSwiftUITests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +512,7 @@
 				CF1A305C1C3B98AC002D85B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
