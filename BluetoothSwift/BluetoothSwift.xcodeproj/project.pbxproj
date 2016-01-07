@@ -16,6 +16,8 @@
 		CF1A30501C3B98AC002D85B6 /* BluetoothSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A304F1C3B98AC002D85B6 /* BluetoothSwiftUITests.swift */; };
 		CF1A30601C3B9A39002D85B6 /* HNCentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A305F1C3B9A39002D85B6 /* HNCentralManager.swift */; };
 		CF1A30A51C3CF904002D85B6 /* HNBaseCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30A41C3CF904002D85B6 /* HNBaseCommand.swift */; };
+		CF1A30AC1C3DFC42002D85B6 /* HNLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30AB1C3DFC42002D85B6 /* HNLight.swift */; };
+		CF1A30AE1C3DFDCF002D85B6 /* HNPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30AD1C3DFDCF002D85B6 /* HNPublic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		CF1A30511C3B98AC002D85B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF1A305F1C3B9A39002D85B6 /* HNCentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNCentralManager.swift; sourceTree = "<group>"; };
 		CF1A30A41C3CF904002D85B6 /* HNBaseCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNBaseCommand.swift; sourceTree = "<group>"; };
+		CF1A30AB1C3DFC42002D85B6 /* HNLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNLight.swift; sourceTree = "<group>"; };
+		CF1A30AD1C3DFDCF002D85B6 /* HNPublic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNPublic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +105,10 @@
 		CF1A302E1C3B98AC002D85B6 /* BluetoothSwift */ = {
 			isa = PBXGroup;
 			children = (
-				CF1A30A41C3CF904002D85B6 /* HNBaseCommand.swift */,
-				CF1A305F1C3B9A39002D85B6 /* HNCentralManager.swift */,
+				CF1A30AD1C3DFDCF002D85B6 /* HNPublic.swift */,
+				CF1A30AA1C3DFC2A002D85B6 /* Model */,
+				CF1A30A91C3DFC1B002D85B6 /* Command */,
+				CF1A30A81C3DFC02002D85B6 /* Bluetooth */,
 				CF1A302F1C3B98AC002D85B6 /* AppDelegate.swift */,
 				CF1A30311C3B98AC002D85B6 /* ViewController.swift */,
 				CF1A30331C3B98AC002D85B6 /* Main.storyboard */,
@@ -129,6 +135,30 @@
 				CF1A30511C3B98AC002D85B6 /* Info.plist */,
 			);
 			path = BluetoothSwiftUITests;
+			sourceTree = "<group>";
+		};
+		CF1A30A81C3DFC02002D85B6 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				CF1A305F1C3B9A39002D85B6 /* HNCentralManager.swift */,
+			);
+			name = Bluetooth;
+			sourceTree = "<group>";
+		};
+		CF1A30A91C3DFC1B002D85B6 /* Command */ = {
+			isa = PBXGroup;
+			children = (
+				CF1A30A41C3CF904002D85B6 /* HNBaseCommand.swift */,
+			);
+			name = Command;
+			sourceTree = "<group>";
+		};
+		CF1A30AA1C3DFC2A002D85B6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CF1A30AB1C3DFC42002D85B6 /* HNLight.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,8 +293,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF1A30321C3B98AC002D85B6 /* ViewController.swift in Sources */,
+				CF1A30AC1C3DFC42002D85B6 /* HNLight.swift in Sources */,
 				CF1A30601C3B9A39002D85B6 /* HNCentralManager.swift in Sources */,
 				CF1A30A51C3CF904002D85B6 /* HNBaseCommand.swift in Sources */,
+				CF1A30AE1C3DFDCF002D85B6 /* HNPublic.swift in Sources */,
 				CF1A30301C3B98AC002D85B6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

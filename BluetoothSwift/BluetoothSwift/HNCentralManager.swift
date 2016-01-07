@@ -209,6 +209,11 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         }
     }
     
+    func setupNameForLights(lightIdentifiers: [String]!) {
+    
+    
+    }
+    
     // MARK:获取需要发送指令的设备的Help Method
     func getPeriphrealsThroughlightIdentifiers(lightIdentifiers: [String]!) -> [CBPeripheral] {
         var periphreals: [CBPeripheral]!
