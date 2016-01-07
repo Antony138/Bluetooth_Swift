@@ -19,6 +19,7 @@
 		CF1A30AC1C3DFC42002D85B6 /* HNLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30AB1C3DFC42002D85B6 /* HNLight.swift */; };
 		CF1A30AE1C3DFDCF002D85B6 /* HNPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30AD1C3DFDCF002D85B6 /* HNPublic.swift */; };
 		CF1A30B01C3E0CCB002D85B6 /* HNIUL11Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30AF1C3E0CCB002D85B6 /* HNIUL11Store.swift */; };
+		CF1A30B31C3E64AA002D85B6 /* HNIUL11Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30B21C3E64AA002D85B6 /* HNIUL11Manager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		CF1A30AB1C3DFC42002D85B6 /* HNLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNLight.swift; sourceTree = "<group>"; };
 		CF1A30AD1C3DFDCF002D85B6 /* HNPublic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNPublic.swift; sourceTree = "<group>"; };
 		CF1A30AF1C3E0CCB002D85B6 /* HNIUL11Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNIUL11Store.swift; sourceTree = "<group>"; };
+		CF1A30B21C3E64AA002D85B6 /* HNIUL11Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNIUL11Manager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				CF1A30AD1C3DFDCF002D85B6 /* HNPublic.swift */,
+				CF1A30B21C3E64AA002D85B6 /* HNIUL11Manager.swift */,
 				CF1A30AA1C3DFC2A002D85B6 /* Model */,
 				CF1A30A91C3DFC1B002D85B6 /* Command */,
 				CF1A30A81C3DFC02002D85B6 /* Bluetooth */,
@@ -299,6 +302,7 @@
 				CF1A30AC1C3DFC42002D85B6 /* HNLight.swift in Sources */,
 				CF1A30601C3B9A39002D85B6 /* HNCentralManager.swift in Sources */,
 				CF1A30A51C3CF904002D85B6 /* HNBaseCommand.swift in Sources */,
+				CF1A30B31C3E64AA002D85B6 /* HNIUL11Manager.swift in Sources */,
 				CF1A30AE1C3DFDCF002D85B6 /* HNPublic.swift in Sources */,
 				CF1A30B01C3E0CCB002D85B6 /* HNIUL11Store.swift in Sources */,
 				CF1A30301C3B98AC002D85B6 /* AppDelegate.swift in Sources */,

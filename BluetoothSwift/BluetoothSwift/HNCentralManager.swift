@@ -33,12 +33,8 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     /// 计时器(扫描5秒)
     private var scanTimer: NSTimer!
     
-    
-    // MARK:- Create Sinaleton/创建单例
-    static let sharedManager = HNCentralManager()
-    private override init() {
+    override init() {
         super.init()
-        // 实例化CBCentralManager对象
         bleManager = CBCentralManager.init(delegate: self, queue: nil)
     }
 
@@ -209,9 +205,37 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         }
     }
     
+    // MARK:指令——修改硬件名称指令
     func setupNameForLights(lightIdentifiers: [String]!) {
-    
-    
+        
+        // 要用lightIdentifiers数组中的索引获取allLights数组的元素,所以用了两个for循环
+        for peripheral in connectedPeripherals {
+            for (index, lightIdentifier) in lightIdentifiers.enumerate() {
+                if lightIdentifier == peripheral.identifier.UUIDString {
+                    let nameData: NSMutableData = NSMutableData.init()
+                    
+                    // 指令头部
+                    var cmdHeader: M2DControlSetNameCommandHeader!
+                    cmdHeader.startBit = HNStartBitAA
+                    nameData.appendBytes(&cmdHeader, length: sizeof(M2DControlSetNameCommandHeader))
+                    
+                    // 指令内容(名字)
+                    // 注意和OC的区别
+                    let light = HNIUL11Manager.shareManager.store.allLights[index]
+                    nameData.appendBytes((light.name as NSString).UTF8String, length: light.name.characters.count)
+                    
+                    // 指令尾部
+                    var cmdTail: M2DControlSetNameCommandTail!
+                    cmdTail.checksum = HNChecksumChar77
+                    nameData.appendBytes(&cmdTail, length: sizeof(M2DControlSetNameCommandTail))
+                    
+                    // 获取"数据写入特征"
+                    let dataInCharacteristic = self.getDataInCharacteristicFormPeriphreal(peripheral)
+                    
+                    peripheral.writeValue(nameData, forCharacteristic: dataInCharacteristic, type: CBCharacteristicWriteType.WithoutResponse)
+                }
+            }
+        }
     }
     
     // MARK:获取需要发送指令的设备的Help Method
