@@ -221,7 +221,7 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
                     
                     // 指令内容(名字)
                     // 注意和OC的区别
-                    let light = HNIUL11Manager.shareManager.store.allLights[index]
+                    let light = HNIUL11Manager.shareManager.store.allLights![index]
                     nameData.appendBytes((light.name as NSString).UTF8String, length: light.name.characters.count)
                     
                     // 指令尾部
@@ -241,7 +241,7 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     // MARK:指令——upload:帮助硬件保存数据指令(传数据到硬件)
     func upload() {
         for (index, peripheral) in connectedPeripherals.enumerate() {
-            let light = HNIUL11Manager.shareManager.store.allLights[index]
+            let light = HNIUL11Manager.shareManager.store.allLights![index]
             
             var cmd: M2DControlHelpSaveCommand!
             cmd.startBit        = HNStartBitDA

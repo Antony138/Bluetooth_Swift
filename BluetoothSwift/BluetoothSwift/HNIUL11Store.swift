@@ -11,7 +11,7 @@ import UIKit
 class HNIUL11Store: NSObject {
     
     /// 所有灯的数据
-    var allLights: [HNLight]! {
+    var allLights: [HNLight]? {
         // Swift中的get、set方法，跟在属性定义后面
         get {
             return privateLights
@@ -36,7 +36,7 @@ class HNIUL11Store: NSObject {
     /// 私有的灯数据
     private var privateLights: [HNLight]?
     
-    
+    // MARK:-
     override init() {
         super.init()
         // 从沙盒中取数据
@@ -46,9 +46,11 @@ class HNIUL11Store: NSObject {
         
         // 沙盒中没有数据,创建之
         if (privateLights == nil) {
+            // 因为声明的时候尚未初始化,这里需要初始化
+            privateLights = []
             for _ in 0...7 {
                 let light = HNLight.init()
-                privateLights?.append(light)
+                privateLights!.append(light)
             }
         }
     }
@@ -65,7 +67,9 @@ class HNIUL11Store: NSObject {
     // MARK:保存数据
     func saveData() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(privateLights!, toFile: self.dataArchivePath())
-        if !isSuccessfulSave {
+        if isSuccessfulSave {
+            print("...成功保存数据")
+        } else {
             print("保存数据失败...")
         }
     }

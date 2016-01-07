@@ -20,6 +20,15 @@
 		CF1A30AE1C3DFDCF002D85B6 /* HNPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30AD1C3DFDCF002D85B6 /* HNPublic.swift */; };
 		CF1A30B01C3E0CCB002D85B6 /* HNIUL11Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30AF1C3E0CCB002D85B6 /* HNIUL11Store.swift */; };
 		CF1A30B31C3E64AA002D85B6 /* HNIUL11Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30B21C3E64AA002D85B6 /* HNIUL11Manager.swift */; };
+		CF1A30BD1C3E8D77002D85B6 /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30B61C3E8D77002D85B6 /* ColorUtils.swift */; };
+		CF1A30BE1C3E8D77002D85B6 /* ColorWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30B71C3E8D77002D85B6 /* ColorWheel.swift */; };
+		CF1A30BF1C3E8D77002D85B6 /* HNCustomLightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30B81C3E8D77002D85B6 /* HNCustomLightButton.swift */; };
+		CF1A30C01C3E8D77002D85B6 /* HNCustomLightButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF1A30B91C3E8D77002D85B6 /* HNCustomLightButton.xib */; };
+		CF1A30C11C3E8D77002D85B6 /* HNTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30BA1C3E8D77002D85B6 /* HNTableViewCell.swift */; };
+		CF1A30C21C3E8D77002D85B6 /* HNTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF1A30BB1C3E8D77002D85B6 /* HNTableViewCell.xib */; };
+		CF1A30C31C3E8D77002D85B6 /* SwiftHSVColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30BC1C3E8D77002D85B6 /* SwiftHSVColorPicker.swift */; };
+		CF1A30C51C3E8DED002D85B6 /* Light.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30C41C3E8DED002D85B6 /* Light.swift */; };
+		CF1A30CD1C3E8F29002D85B6 /* HNHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30CC1C3E8F29002D85B6 /* HNHomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +68,15 @@
 		CF1A30AD1C3DFDCF002D85B6 /* HNPublic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNPublic.swift; sourceTree = "<group>"; };
 		CF1A30AF1C3E0CCB002D85B6 /* HNIUL11Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNIUL11Store.swift; sourceTree = "<group>"; };
 		CF1A30B21C3E64AA002D85B6 /* HNIUL11Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNIUL11Manager.swift; sourceTree = "<group>"; };
+		CF1A30B61C3E8D77002D85B6 /* ColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
+		CF1A30B71C3E8D77002D85B6 /* ColorWheel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWheel.swift; sourceTree = "<group>"; };
+		CF1A30B81C3E8D77002D85B6 /* HNCustomLightButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNCustomLightButton.swift; sourceTree = "<group>"; };
+		CF1A30B91C3E8D77002D85B6 /* HNCustomLightButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HNCustomLightButton.xib; sourceTree = "<group>"; };
+		CF1A30BA1C3E8D77002D85B6 /* HNTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNTableViewCell.swift; sourceTree = "<group>"; };
+		CF1A30BB1C3E8D77002D85B6 /* HNTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HNTableViewCell.xib; sourceTree = "<group>"; };
+		CF1A30BC1C3E8D77002D85B6 /* SwiftHSVColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftHSVColorPicker.swift; sourceTree = "<group>"; };
+		CF1A30C41C3E8DED002D85B6 /* Light.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Light.swift; sourceTree = "<group>"; };
+		CF1A30CC1C3E8F29002D85B6 /* HNHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNHomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +132,8 @@
 				CF1A30AA1C3DFC2A002D85B6 /* Model */,
 				CF1A30A91C3DFC1B002D85B6 /* Command */,
 				CF1A30A81C3DFC02002D85B6 /* Bluetooth */,
+				CF1A30B41C3E8CF8002D85B6 /* Controllers */,
+				CF1A30B51C3E8D5E002D85B6 /* Views */,
 				CF1A302F1C3B98AC002D85B6 /* AppDelegate.swift */,
 				CF1A30311C3B98AC002D85B6 /* ViewController.swift */,
 				CF1A30331C3B98AC002D85B6 /* Main.storyboard */,
@@ -161,10 +181,33 @@
 		CF1A30AA1C3DFC2A002D85B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CF1A30C41C3E8DED002D85B6 /* Light.swift */,
 				CF1A30AF1C3E0CCB002D85B6 /* HNIUL11Store.swift */,
 				CF1A30AB1C3DFC42002D85B6 /* HNLight.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		CF1A30B41C3E8CF8002D85B6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CF1A30CC1C3E8F29002D85B6 /* HNHomeViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		CF1A30B51C3E8D5E002D85B6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CF1A30B61C3E8D77002D85B6 /* ColorUtils.swift */,
+				CF1A30B71C3E8D77002D85B6 /* ColorWheel.swift */,
+				CF1A30B81C3E8D77002D85B6 /* HNCustomLightButton.swift */,
+				CF1A30B91C3E8D77002D85B6 /* HNCustomLightButton.xib */,
+				CF1A30BA1C3E8D77002D85B6 /* HNTableViewCell.swift */,
+				CF1A30BB1C3E8D77002D85B6 /* HNTableViewCell.xib */,
+				CF1A30BC1C3E8D77002D85B6 /* SwiftHSVColorPicker.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +315,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF1A303A1C3B98AC002D85B6 /* LaunchScreen.storyboard in Resources */,
+				CF1A30C21C3E8D77002D85B6 /* HNTableViewCell.xib in Resources */,
+				CF1A30C01C3E8D77002D85B6 /* HNCustomLightButton.xib in Resources */,
 				CF1A30371C3B98AC002D85B6 /* Assets.xcassets in Resources */,
 				CF1A30351C3B98AC002D85B6 /* Main.storyboard in Resources */,
 			);
@@ -298,14 +343,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF1A30BD1C3E8D77002D85B6 /* ColorUtils.swift in Sources */,
 				CF1A30321C3B98AC002D85B6 /* ViewController.swift in Sources */,
 				CF1A30AC1C3DFC42002D85B6 /* HNLight.swift in Sources */,
+				CF1A30CD1C3E8F29002D85B6 /* HNHomeViewController.swift in Sources */,
 				CF1A30601C3B9A39002D85B6 /* HNCentralManager.swift in Sources */,
 				CF1A30A51C3CF904002D85B6 /* HNBaseCommand.swift in Sources */,
+				CF1A30C31C3E8D77002D85B6 /* SwiftHSVColorPicker.swift in Sources */,
+				CF1A30C11C3E8D77002D85B6 /* HNTableViewCell.swift in Sources */,
 				CF1A30B31C3E64AA002D85B6 /* HNIUL11Manager.swift in Sources */,
+				CF1A30BF1C3E8D77002D85B6 /* HNCustomLightButton.swift in Sources */,
 				CF1A30AE1C3DFDCF002D85B6 /* HNPublic.swift in Sources */,
 				CF1A30B01C3E0CCB002D85B6 /* HNIUL11Store.swift in Sources */,
 				CF1A30301C3B98AC002D85B6 /* AppDelegate.swift in Sources */,
+				CF1A30C51C3E8DED002D85B6 /* Light.swift in Sources */,
+				CF1A30BE1C3E8D77002D85B6 /* ColorWheel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
