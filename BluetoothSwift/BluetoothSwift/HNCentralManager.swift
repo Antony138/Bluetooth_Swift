@@ -139,7 +139,7 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     }
     
     // MARK:- 计时结束,链接设备
-    private func shouldConnectDevices() {
+    func shouldConnectDevices() {
         if discoverPeripherals.count > 0 {
             print("扫描5秒结束,扫描到\(discoverPeripherals.count)个设备,开始链接")
             for peripheral in discoverPeripherals {
