@@ -238,6 +238,52 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         }
     }
     
+    // MARK:指令——upload:帮助硬件保存数据指令(传数据到硬件)
+    func upload() {
+        for (index, peripheral) in connectedPeripherals.enumerate() {
+            let light = HNIUL11Manager.shareManager.store.allLights[index]
+            
+            var cmd: M2DControlHelpSaveCommand!
+            cmd.startBit        = HNStartBitDA
+            cmd.cmd             = HNM2DCommands.HN_COMMAND_HLPE_SAVE.rawValue
+            cmd.colourR         = light.colorR
+            cmd.colourG         = light.colorG
+            cmd.colourB         = light.colorB
+            cmd.brightnessValue = light.brightness
+            cmd.reserved        = 0x00
+            cmd.checksum        = HNChecksumChar9A
+            
+            let dataInCharacteristic = self.getDataInCharacteristicFormPeriphreal(peripheral)
+            
+            // 断行也没有像OC那么直观(OC是以冒号对齐的，可读性强)
+            peripheral.writeValue(NSData.init(bytes: &cmd,
+                length: sizeof(M2DControlHelpSaveCommand)),
+                forCharacteristic: dataInCharacteristic, type: CBCharacteristicWriteType.WithoutResponse)
+        }
+    }
+    
+    // MARK:指令——erase:帮助硬件恢复初始值
+    func erase() {
+        for peripheral in connectedPeripherals {
+            var cmd: M2DControlHelpSaveCommand!
+            cmd.startBit        = HNStartBitDA
+            cmd.cmd             = HNM2DCommands.HN_COMMAND_HLPE_SAVE.rawValue
+            cmd.colourR         = 255
+            cmd.colourG         = 255
+            cmd.colourB         = 255
+            cmd.brightnessValue = 255
+            cmd.reserved        = 0x00
+            cmd.checksum        = HNChecksumChar9A
+            
+            let dataInCharacteristic = self.getDataInCharacteristicFormPeriphreal(peripheral)
+            
+            // 断行也没有像OC那么直观(OC是以冒号对齐的，可读性强)
+            peripheral.writeValue(NSData.init(bytes: &cmd,
+                length: sizeof(M2DControlHelpSaveCommand)),
+                forCharacteristic: dataInCharacteristic, type: CBCharacteristicWriteType.WithoutResponse)
+        }
+    }
+    
     // MARK:获取需要发送指令的设备的Help Method
     func getPeriphrealsThroughlightIdentifiers(lightIdentifiers: [String]!) -> [CBPeripheral] {
         var periphreals: [CBPeripheral]!

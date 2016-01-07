@@ -9,9 +9,9 @@
 import Foundation
 
 let kDefaultIdentifier        = "00000000-0000-0000-0000-000000000000"
-let kDefaultBrightness: Int32 = 255
-let kDefaultColorR: Int32     = 255
-let kDefaultColorG: Int32     = 255
-let kDefaultColorB: Int32     = 255
+let kDefaultBrightness: UInt8 = 255
+let kDefaultColorR: UInt8     = 255
+let kDefaultColorG: UInt8     = 255
+let kDefaultColorB: UInt8     = 255
 let kDefaultLightName         = "Enter Name"
-let kDefaultGroupIndex: Int32 = 4
+let kDefaultGroupIndex: Int   = 4

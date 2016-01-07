@@ -27,14 +27,14 @@ class HNLight: NSObject, NSCoding {
     
     // MARK: Properties
     var identifier: String
-    var brightness: Int32
-    var colorR: Int32
-    var colorG: Int32
-    var colorB: Int32
+    var brightness: UInt8
+    var colorR: UInt8
+    var colorG: UInt8
+    var colorB: UInt8
     var name: String
     var isSelected: Bool
     var isGrouped: Bool
-    var groupIndex: Int32
+    var groupIndex: Int
     var isOn: Bool
     var isConnected: Bool
 
@@ -56,10 +56,10 @@ class HNLight: NSObject, NSCoding {
     // 编码/固化
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(identifier, forKey: PropertyKey.identifierKey)
-        aCoder.encodeInt(Int32(brightness), forKey: PropertyKey.brightnessKey)
-        aCoder.encodeInt(Int32(colorR), forKey: PropertyKey.colorRKey)
-        aCoder.encodeInt(Int32(colorG), forKey: PropertyKey.colorGKey)
-        aCoder.encodeInt(Int32(colorB), forKey: PropertyKey.colorBKey)
+        aCoder.encodeBytes(&brightness, length: sizeof(UInt8), forKey: PropertyKey.brightnessKey)
+        aCoder.encodeBytes(&colorR, length: sizeof(UInt8), forKey: PropertyKey.colorRKey)
+        aCoder.encodeBytes(&colorG, length: sizeof(UInt8), forKey: PropertyKey.colorGKey)
+        aCoder.encodeBytes(&colorB, length: sizeof(UInt8), forKey: PropertyKey.colorBKey)
         aCoder.encodeObject(name, forKey: PropertyKey.nameKey)
         aCoder.encodeInt(Int32(groupIndex), forKey: PropertyKey.groupIndexKey)
         aCoder.encodeBool(isSelected, forKey: PropertyKey.isSelectedKey)
@@ -75,13 +75,14 @@ class HNLight: NSObject, NSCoding {
     required init?(coder aDecoder: NSCoder) {
          // decodeObjectForKey(_:)方法的返回值是AnyObject,所以先要进行类型强转
         // (as!)是forced type cast operator,也就是类型强转(区别(as?)是optional type cast operator)
+        var length  = sizeof(UInt8)
         identifier  = aDecoder.decodeObjectForKey(PropertyKey.identifierKey) as! String
-        brightness  = aDecoder.decodeIntForKey(PropertyKey.brightnessKey)
-        colorR      = aDecoder.decodeIntForKey(PropertyKey.colorRKey)
-        colorG      = aDecoder.decodeIntForKey(PropertyKey.colorGKey)
-        colorB      = aDecoder.decodeIntForKey(PropertyKey.colorBKey)
+        brightness  = aDecoder.decodeBytesForKey(PropertyKey.brightnessKey, returnedLength: &length).memory
+        colorR      = aDecoder.decodeBytesForKey(PropertyKey.colorRKey, returnedLength: &length).memory
+        colorG      = aDecoder.decodeBytesForKey(PropertyKey.colorGKey, returnedLength: &length).memory
+        colorB      = aDecoder.decodeBytesForKey(PropertyKey.colorBKey, returnedLength: &length).memory
         name        = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
-        groupIndex  = aDecoder.decodeIntForKey(PropertyKey.groupIndexKey)
+        groupIndex  = aDecoder.decodeIntegerForKey(PropertyKey.groupIndexKey)
         isSelected  = aDecoder.decodeBoolForKey(PropertyKey.isSelectedKey)
         isGrouped   = aDecoder.decodeBoolForKey(PropertyKey.isGroupedKey)
         isOn        = aDecoder.decodeBoolForKey(PropertyKey.isOnKey)
