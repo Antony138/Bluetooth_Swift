@@ -18,6 +18,7 @@
 		CF1A30A51C3CF904002D85B6 /* HNBaseCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30A41C3CF904002D85B6 /* HNBaseCommand.swift */; };
 		CF1A30AC1C3DFC42002D85B6 /* HNLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30AB1C3DFC42002D85B6 /* HNLight.swift */; };
 		CF1A30AE1C3DFDCF002D85B6 /* HNPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30AD1C3DFDCF002D85B6 /* HNPublic.swift */; };
+		CF1A30B01C3E0CCB002D85B6 /* HNIUL11Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A30AF1C3E0CCB002D85B6 /* HNIUL11Store.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		CF1A30A41C3CF904002D85B6 /* HNBaseCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNBaseCommand.swift; sourceTree = "<group>"; };
 		CF1A30AB1C3DFC42002D85B6 /* HNLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNLight.swift; sourceTree = "<group>"; };
 		CF1A30AD1C3DFDCF002D85B6 /* HNPublic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNPublic.swift; sourceTree = "<group>"; };
+		CF1A30AF1C3E0CCB002D85B6 /* HNIUL11Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNIUL11Store.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 		CF1A30AA1C3DFC2A002D85B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CF1A30AF1C3E0CCB002D85B6 /* HNIUL11Store.swift */,
 				CF1A30AB1C3DFC42002D85B6 /* HNLight.swift */,
 			);
 			name = Model;
@@ -297,6 +300,7 @@
 				CF1A30601C3B9A39002D85B6 /* HNCentralManager.swift in Sources */,
 				CF1A30A51C3CF904002D85B6 /* HNBaseCommand.swift in Sources */,
 				CF1A30AE1C3DFDCF002D85B6 /* HNPublic.swift in Sources */,
+				CF1A30B01C3E0CCB002D85B6 /* HNIUL11Store.swift in Sources */,
 				CF1A30301C3B98AC002D85B6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
