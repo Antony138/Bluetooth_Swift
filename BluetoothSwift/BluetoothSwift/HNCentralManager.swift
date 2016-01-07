@@ -165,7 +165,6 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     
     // MARK:指令——亮度控制指令
     func setupLights(lightIdentifiers: [String]!, brightnessValue: UInt8) {
-        
         // 获取要发送指令的所有设备
         let periphreals = self.getPeriphrealsThroughlightIdentifiers(lightIdentifiers)
         
@@ -189,11 +188,27 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         }
     }
     
+    // MARK:指令——颜色控制指令
     func setupLights(lightIdentifiers: [String]!, colorR: UInt8, colorG: UInt8, colorB: UInt8) {
-    
+        let periphreals = self.getPeriphrealsThroughlightIdentifiers(lightIdentifiers)
+        
+        for periphreal in periphreals {
+            var cmd: M2DControlColourCommand!
+            cmd.startBit = HNStartBitDA
+            cmd.cmd = HNM2DCommands.HN_COMMAND_COLOUR.rawValue
+            cmd.colourR = colorR
+            cmd.colourG = colorG
+            cmd.colourB = colorB
+            cmd.reserved = 0x00
+            cmd.checksum = HNChecksumChar66
+            let colorData = NSData.init(bytes: &cmd, length: sizeof(M2DControlColourCommand))
+            
+            let dataInCharacteristic = self.getDataInCharacteristicFormPeriphreal(periphreal)
+            
+            periphreal.writeValue(colorData, forCharacteristic: dataInCharacteristic, type: CBCharacteristicWriteType.WithoutResponse)
+        }
     }
     
-
     // MARK:获取需要发送指令的设备的Help Method
     func getPeriphrealsThroughlightIdentifiers(lightIdentifiers: [String]!) -> [CBPeripheral] {
         var periphreals: [CBPeripheral]!
