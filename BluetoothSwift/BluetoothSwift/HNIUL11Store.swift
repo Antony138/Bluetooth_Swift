@@ -40,6 +40,7 @@ class HNIUL11Store: NSObject {
     override init() {
         super.init()
         // 从沙盒中取数据
+        // as后面的问号,表示有可能返回一个数组,也有可能返回空值
         privateLights = NSKeyedUnarchiver.unarchiveObjectWithFile(self.dataArchivePath()) as? [HNLight]
         print("\(self.dataArchivePath())")
         
@@ -55,13 +56,17 @@ class HNIUL11Store: NSObject {
     // 保存数据的路径
     func dataArchivePath() -> String {
         // 可以将NSSearchPathDirectory、NSSearchPathDomainMask删除
-        let documentDirectories = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let doucumentDirectory = documentDirectories.first!
-        return doucumentDirectory.stringByAppendingString("lightingControllerData.archive")
+        // 苹果官方写法
+        let doucumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+        let archiveURL = doucumentsDirectory.URLByAppendingPathComponent("lightingControllerData")
+        return archiveURL.path!
     }
     
     // MARK:保存数据
-    func saveData() -> Bool {
-        return NSKeyedArchiver.archiveRootObject(privateLights!, toFile: self.dataArchivePath())
+    func saveData() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(privateLights!, toFile: self.dataArchivePath())
+        if !isSuccessfulSave {
+            print("保存数据失败...")
+        }
     }
 }
