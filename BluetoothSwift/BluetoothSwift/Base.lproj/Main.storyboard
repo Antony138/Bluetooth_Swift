@@ -112,6 +112,18 @@
                                         <rect key="frame" x="138" y="0.0" width="138" height="114"/>
                                         <color key="backgroundColor" red="0.16078431369999999" green="0.1764705882" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
+                                    <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4MS-7S-zlg" userLabel="2View">
+                                        <rect key="frame" x="276" y="0.0" width="138" height="114"/>
+                                        <color key="backgroundColor" red="0.16078431372549021" green="0.17647058823529413" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBV-cY-bTO" userLabel="3View">
+                                        <rect key="frame" x="0.0" y="114" width="138" height="114"/>
+                                        <color key="backgroundColor" red="0.16078431369999999" green="0.1764705882" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTu-8A-NV6" userLabel="4View">
+                                        <rect key="frame" x="138" y="114" width="138" height="114"/>
+                                        <color key="backgroundColor" red="0.16078431369999999" green="0.1764705882" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
                                     <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDR-dQ-Ext" userLabel="5View">
                                         <rect key="frame" x="276" y="114" width="138" height="114"/>
                                         <color key="backgroundColor" red="0.16078431369999999" green="0.1764705882" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -129,18 +141,6 @@
                                         <state key="normal" title="Button" image="lightswitchoff"/>
                                         <state key="highlighted" image="lightswitchon"/>
                                     </button>
-                                    <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4MS-7S-zlg" userLabel="2View">
-                                        <rect key="frame" x="276" y="0.0" width="138" height="114"/>
-                                        <color key="backgroundColor" red="0.16078431372549021" green="0.17647058823529413" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                    <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBV-cY-bTO" userLabel="3View">
-                                        <rect key="frame" x="0.0" y="114" width="138" height="114"/>
-                                        <color key="backgroundColor" red="0.16078431369999999" green="0.1764705882" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                    <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTu-8A-NV6" userLabel="4View">
-                                        <rect key="frame" x="138" y="114" width="138" height="114"/>
-                                        <color key="backgroundColor" red="0.16078431369999999" green="0.1764705882" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -304,6 +304,24 @@
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="brightnessSlider" destination="ySb-5W-SAr" id="lfz-d5-w2B"/>
+                        <outlet property="colorPicker" destination="Aii-s7-jbo" id="tad-Ae-7WX"/>
+                        <outlet property="editPageToggleButton" destination="kpt-Yc-sCm" id="hfS-VA-fNg"/>
+                        <outlet property="lightToggleButton" destination="oKN-F4-fl0" id="CcF-7O-vcj"/>
+                        <outletCollection property="lightButtonViews" destination="umn-0M-m8C" collectionClass="NSMutableArray" id="piF-Yj-BKw"/>
+                        <outletCollection property="lightButtonViews" destination="R9d-Yi-TEt" collectionClass="NSMutableArray" id="Ymf-YV-eaa"/>
+                        <outletCollection property="lightButtonViews" destination="4MS-7S-zlg" collectionClass="NSMutableArray" id="m9J-Ph-va9"/>
+                        <outletCollection property="lightButtonViews" destination="nBV-cY-bTO" collectionClass="NSMutableArray" id="lPA-Jr-OPC"/>
+                        <outletCollection property="lightButtonViews" destination="BTu-8A-NV6" collectionClass="NSMutableArray" id="h14-5O-5wV"/>
+                        <outletCollection property="lightButtonViews" destination="EDR-dQ-Ext" collectionClass="NSMutableArray" id="7Nm-ZB-7XM"/>
+                        <outletCollection property="lightButtonViews" destination="dV0-Xv-WcG" collectionClass="NSMutableArray" id="SSS-6s-eeA"/>
+                        <outletCollection property="lightButtonViews" destination="rd3-Hv-jqR" collectionClass="NSMutableArray" id="3e4-tf-dSt"/>
+                        <outletCollection property="groupButtons" destination="RdA-1O-OKl" collectionClass="NSMutableArray" id="YJd-9I-izI"/>
+                        <outletCollection property="groupButtons" destination="RzJ-ij-qHh" collectionClass="NSMutableArray" id="anr-3K-gCv"/>
+                        <outletCollection property="groupButtons" destination="g5T-0u-wch" collectionClass="NSMutableArray" id="E7i-4i-hx6"/>
+                        <outletCollection property="groupButtons" destination="Tcj-KE-xu1" collectionClass="NSMutableArray" id="ewN-z8-2Qk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
