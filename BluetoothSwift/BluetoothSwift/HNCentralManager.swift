@@ -86,7 +86,7 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         
         // 3、将已经链接的设备加入connectedPeripherals数组
         connectedPeripherals.append(peripheral)
-        print("成功链接\(peripheral.name)，现在有\(connectedPeripherals.count)个链接设备")
+        print("成功链接\(peripheral.name)，identifier为\(peripheral.identifier)现在有\(connectedPeripherals.count)个链接设备")
     }
     
     // MARK:设备断开链接
@@ -167,12 +167,8 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         // 遍历设备，发送指令
         for peripheral in periphreals {
             // 包装指令(数据)
-            var cmd: M2DControlBrightnessCommand!
-            cmd.startBit        = HNStartBitDA
-            cmd.cmd             = HNM2DCommands.HN_COMMAND_BRIGHTNESS.rawValue
-            cmd.brightnessValue = brightnessValue
-            cmd.reserved        = 0x00
-            cmd.checksum        = HNChecksumChar55
+            var cmd = M2DControlBrightnessCommand(startBit: HNStartBitDA, cmd: HNM2DCommands.HN_COMMAND_BRIGHTNESS.rawValue, brightnessValue: brightnessValue, reserved: 0x00, checksum: HNChecksumChar55)
+            
             let brightnessData = NSData.init(bytes: &cmd, length: sizeof(M2DControlBrightnessCommand))
             
             // 获取"数据写入特征"
@@ -180,7 +176,6 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
             
             // 发送数据给硬件
             peripheral.writeValue(brightnessData, forCharacteristic: dataInCharacteristic, type: CBCharacteristicWriteType.WithoutResponse)
-        
         }
     }
     
@@ -286,7 +281,7 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     
     // MARK:获取需要发送指令的设备的Help Method
     func getPeriphrealsThroughlightIdentifiers(lightIdentifiers: [String]!) -> [CBPeripheral] {
-        var periphreals: [CBPeripheral]!
+        var periphreals = [CBPeripheral]()
         for peripheral in connectedPeripherals {
             for lightIdentifier in lightIdentifiers {
                 if lightIdentifier == peripheral.identifier.UUIDString {

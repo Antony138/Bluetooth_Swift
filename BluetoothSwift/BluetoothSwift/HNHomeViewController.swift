@@ -32,8 +32,6 @@ class HNHomeViewController: UIViewController, HNCustomLightButtonDelegate, Swift
     // MARK:-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
 
     // MARK:- HNCustomLightButtonDelegate
@@ -46,4 +44,8 @@ class HNHomeViewController: UIViewController, HNCustomLightButtonDelegate, Swift
         print("调用SwiftHSVColorPickerDelegate")
     }
     
+    @IBAction func brightnessSliderValueDidChanged(sender: UISlider) {
+        print("亮度值是\(sender.value)")
+        HNIUL11Manager.shareManager.centeralManager.setupLights(["C2552C78-DEB5-9A9F-6823-561AEB438F07"], brightnessValue: (UInt8)(sender.value))
+    }
 }

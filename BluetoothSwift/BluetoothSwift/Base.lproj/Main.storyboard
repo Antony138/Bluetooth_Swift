@@ -200,8 +200,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRY-oe-fCj" userLabel="sliderView">
                                 <rect key="frame" x="0.0" y="662" width="319" height="74"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ySb-5W-SAr">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="ySb-5W-SAr">
                                         <rect key="frame" x="20" y="17" width="277" height="31"/>
+                                        <connections>
+                                            <action selector="brightnessSliderValueDidChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="4eS-Nh-QTd"/>
+                                        </connections>
                                     </slider>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alpha1" translatesAutoresizingMaskIntoConstraints="NO" id="3Ec-sM-XGB" userLabel="alpha1">
                                         <rect key="frame" x="273" y="2" width="18" height="18"/>
