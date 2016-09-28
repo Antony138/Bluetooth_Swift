@@ -24,7 +24,7 @@ class HNIUL11Store: NSObject {
             self.connectedLightTotal = 0
             for light in privateLights! {
                 if light.isConnected {
-                    self.connectedLightTotal++
+                    self.connectedLightTotal += 1
                 }
             }
         }

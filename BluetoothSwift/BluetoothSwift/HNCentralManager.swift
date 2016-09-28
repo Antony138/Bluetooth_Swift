@@ -63,7 +63,7 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
                 // 开始扫描(在这里就可以通过服务的UUID来过滤扫描到的设备)(如果第一参数为nil,则扫描所有设备)
                 bleManager.scanForPeripheralsWithServices([kIUL11ServiceUUID], options: nil)
                 print("开始扫描5秒")
-                scanTimer = NSTimer.scheduledTimerWithTimeInterval(scanTime, target: self, selector: "shouldConnectDevices", userInfo: nil, repeats: false)
+                scanTimer = NSTimer.scheduledTimerWithTimeInterval(scanTime, target: self, selector: #selector(HNCentralManager.shouldConnectDevices), userInfo: nil, repeats: false)
             }
         } else {
             // Fallback on earlier versions

@@ -149,7 +149,7 @@ class HNCustomLightButton: UIView {
     //MARK:-设置View的点击事件监听器
     func clickListener(){
         self.userInteractionEnabled = true
-        let singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "clickAction")
+        let singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HNCustomLightButton.clickAction))
         self.addGestureRecognizer(singleTap)
         
 //        print("superview tag\(self.superview?.tag)")

@@ -47,7 +47,7 @@ public class SwiftHSVColorPicker: UIView {
         self.color = color
         
         var i: Int
-        for i = 0; i < 8; ++i {
+        for i = 0; i < 8; i += 1 {
             brightnessDic[i] = brightness
             colorDic[i] = color
             hueDic[i] = hue
