@@ -40,29 +40,33 @@ class HNCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
 
     // MARK:- CBCentralManagerDelegate
     func centralManagerDidUpdateState(central: CBCentralManager) {
-        switch central.state {
-        case CBCentralManagerState.Unknown:
-            print("CBCentralManager: Unknown")
-            
-        case CBCentralManagerState.Resetting:
-            print("CBCentralManager: Resetting")
-            
-        case CBCentralManagerState.Unsupported:
-            print("CBCentralManager: Unsupported")
-            
-        case CBCentralManagerState.Unauthorized:
-            print("CBCentralManager: Unauthorized")
-            
-        case CBCentralManagerState.PoweredOff:
-            print("CBCentralManager: PoweredOff")
-            
-        case CBCentralManagerState.PoweredOn:
-            print("CBCentralManager: PoweredOn")
-            // PoweredOn之后才能扫描，否则扫描不出设备(好像其他人的实现又不用？)
-            // 开始扫描(在这里就可以通过服务的UUID来过滤扫描到的设备)(如果第一参数为nil,则扫描所有设备)
-            bleManager.scanForPeripheralsWithServices([kIUL11ServiceUUID], options: nil)
-            print("开始扫描5秒")
-            scanTimer = NSTimer.scheduledTimerWithTimeInterval(scanTime, target: self, selector: "shouldConnectDevices", userInfo: nil, repeats: false)
+        if #available(iOS 10.0, *) {
+            switch central.state {
+            case CBManagerState.Unknown:
+                print("CBCentralManager: Unknown")
+                
+            case CBManagerState.Resetting:
+                print("CBCentralManager: Resetting")
+                
+            case CBManagerState.Unsupported:
+                print("CBCentralManager: Unsupported")
+                
+            case CBManagerState.Unauthorized:
+                print("CBCentralManager: Unauthorized")
+                
+            case CBManagerState.PoweredOff:
+                print("CBCentralManager: PoweredOff")
+                
+            case CBManagerState.PoweredOn:
+                print("CBCentralManager: PoweredOn")
+                // PoweredOn之后才能扫描，否则扫描不出设备(好像其他人的实现又不用？)
+                // 开始扫描(在这里就可以通过服务的UUID来过滤扫描到的设备)(如果第一参数为nil,则扫描所有设备)
+                bleManager.scanForPeripheralsWithServices([kIUL11ServiceUUID], options: nil)
+                print("开始扫描5秒")
+                scanTimer = NSTimer.scheduledTimerWithTimeInterval(scanTime, target: self, selector: "shouldConnectDevices", userInfo: nil, repeats: false)
+            }
+        } else {
+            // Fallback on earlier versions
         }
     }
     

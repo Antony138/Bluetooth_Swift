@@ -61,7 +61,7 @@ class HNIUL11Store: NSObject {
         // 苹果官方写法
         let doucumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
         let archiveURL = doucumentsDirectory.URLByAppendingPathComponent("lightingControllerData")
-        return archiveURL.path!
+        return archiveURL!.path!
     }
     
     // MARK:保存数据
