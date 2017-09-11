@@ -21,11 +21,11 @@ class ColorWheel: UIView {
     var indicatorLayer: CAShapeLayer!
     var point: CGPoint!
     var indicatorCircleRadius: CGFloat = 5.0
-    var indicatorColor: CGColorRef = UIColor.lightGrayColor().CGColor
+    var indicatorColor: CGColor = UIColor.lightGray.cgColor
     var indicatorBorderWidth: CGFloat = 2.0
     
     // Retina scaling factor
-    let scale: CGFloat = UIScreen.mainScreen().scale
+    let scale: CGFloat = UIScreen.main.scale
     
     var colorPicker: SwiftHSVColorPicker?
     
@@ -49,9 +49,9 @@ class ColorWheel: UIView {
         wheelLayer = CALayer()
         
         if (height - width >= 0) && (height - width <= 20) {
-        wheelLayer.frame = CGRectMake(10, 10, height - 20 , height - 20)
+        wheelLayer.frame = CGRect(x: 10, y: 10, width: height - 20 , height: height - 20)
         }else{
-        wheelLayer.frame = CGRectMake(leadingValue, 10, height - 20 , height - 20)
+        wheelLayer.frame = CGRect(x: leadingValue, y: 10, width: height - 20 , height: height - 20)
         }
         
         wheelLayer.contents = createColorWheel(wheelLayer.frame.size)
@@ -79,10 +79,10 @@ class ColorWheel: UIView {
         if self.superview != nil{
             self.superview!.translatesAutoresizingMaskIntoConstraints = false
             self.translatesAutoresizingMaskIntoConstraints = false
-            let leadingConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self.superview, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0.0)
-            let trailingConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: self.superview, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0.0)
-            let topConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.superview, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0.0)
-            let bottomConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.superview, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0.0)
+            let leadingConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: self.superview, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 0.0)
+            let trailingConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: self.superview, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant: 0.0)
+            let topConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self.superview, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 0.0)
+            let bottomConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: self.superview, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: 0.0)
             
             self.superview?.addConstraints([leadingConstraint,trailingConstraint,topConstraint,bottomConstraint])
             
@@ -91,13 +91,13 @@ class ColorWheel: UIView {
     
     
     
-    func initWheel(view:UIView){
+    func initWheel(_ view:UIView){
     
 //        self.color = color
-        view.backgroundColor = UIColor.blackColor()
+        view.backgroundColor = UIColor.black
         // Layer for the Hue/Saturation wheel
         wheelLayer = CALayer()
-        wheelLayer.frame = CGRectMake(20, 20, view.frame.width-60, view.frame.height-60)
+        wheelLayer.frame = CGRect(x: 20, y: 20, width: view.frame.width-60, height: view.frame.height-60)
         wheelLayer.contents = createColorWheel(wheelLayer.frame.size)
         view.layer.addSublayer(wheelLayer)
         
@@ -114,18 +114,18 @@ class ColorWheel: UIView {
     }
     
     //MARK:触摸事件，开始时
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         indicatorCircleRadius = 9.0
         // Set reference to the location of the touch in member point
         if let touch = touches.first {
-            point = touch.locationInView(self)
+            point = touch.location(in: self)
         }
         
         let indicator = getIndicatorCoordinate(point)
         point = indicator.point
         var color = (hue: CGFloat(0), saturation: CGFloat(0))
         if !indicator.isCenter  {
-            color = hueSaturationAtPoint(CGPointMake(point.x*scale, point.y*scale))
+            color = hueSaturationAtPoint(CGPoint(x: point.x*scale, y: point.y*scale))
                     }
         self.color = UIColor(hue: color.hue, saturation: color.saturation, brightness: self.brightness, alpha: 1.0)
         
@@ -138,16 +138,16 @@ class ColorWheel: UIView {
         drawIndicator()
     }
     //MARK:触摸事件，移动时
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Set reference to the location of the touchesMoved in member point
         if let touch = touches.first {
-            point = touch.locationInView(self)
+            point = touch.location(in: self)
         }
         let indicator = getIndicatorCoordinate(point)
         point = indicator.point
         var color = (hue: CGFloat(0), saturation: CGFloat(0))
         if !indicator.isCenter  {
-            color = hueSaturationAtPoint(CGPointMake(point.x*scale, point.y*scale))
+            color = hueSaturationAtPoint(CGPoint(x: point.x*scale, y: point.y*scale))
         }
         self.color = UIColor(hue: color.hue, saturation: color.saturation, brightness: self.brightness, alpha: 1.0)
         
@@ -160,18 +160,18 @@ class ColorWheel: UIView {
         drawIndicator()
     }
      //MARK:触摸事件，结束时
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         indicatorCircleRadius = 5.0
         // Set reference to the location of the touch in member point
         if let touch = touches.first {
-            point = touch.locationInView(self)
+            point = touch.location(in: self)
         }
         
         let indicator = getIndicatorCoordinate(point)
         point = indicator.point
         var color = (hue: CGFloat(0), saturation: CGFloat(0))
         if !indicator.isCenter  {
-            color = hueSaturationAtPoint(CGPointMake(point.x*scale, point.y*scale))
+            color = hueSaturationAtPoint(CGPoint(x: point.x*scale, y: point.y*scale))
         }
         
         self.color = UIColor(hue: color.hue, saturation: color.saturation, brightness: self.brightness, alpha: 1.0)
@@ -189,18 +189,18 @@ class ColorWheel: UIView {
    func drawIndicator() {
         // Draw the indicator
         if (point != nil) {
-            indicatorLayer.path = UIBezierPath(roundedRect: CGRect(x: point.x-indicatorCircleRadius, y: point.y-indicatorCircleRadius, width: indicatorCircleRadius*2, height: indicatorCircleRadius*2), cornerRadius: indicatorCircleRadius).CGPath
+            indicatorLayer.path = UIBezierPath(roundedRect: CGRect(x: point.x-indicatorCircleRadius, y: point.y-indicatorCircleRadius, width: indicatorCircleRadius*2, height: indicatorCircleRadius*2), cornerRadius: indicatorCircleRadius).cgPath
 
-            indicatorLayer.fillColor = self.color.CGColor
+            indicatorLayer.fillColor = self.color.cgColor
         }
     }
     
-    func getIndicatorCoordinate(coord: CGPoint) -> (point: CGPoint, isCenter: Bool) {
+    func getIndicatorCoordinate(_ coord: CGPoint) -> (point: CGPoint, isCenter: Bool) {
         // Making sure that the indicator can't get outside the Hue and Saturation wheel
         
         let dimension: CGFloat = min(wheelLayer.frame.width, wheelLayer.frame.height)
         let radius: CGFloat = dimension/2
-        let wheelLayerCenter: CGPoint = CGPointMake(wheelLayer.frame.origin.x + radius, wheelLayer.frame.origin.y + radius)
+        let wheelLayerCenter: CGPoint = CGPoint(x: wheelLayer.frame.origin.x + radius, y: wheelLayer.frame.origin.y + radius)
 
         let dx: CGFloat = coord.x - wheelLayerCenter.x
         let dy: CGFloat = coord.y - wheelLayerCenter.y
@@ -226,23 +226,23 @@ class ColorWheel: UIView {
     }
     
     //MARK:-画彩色的圆
-    func createColorWheel(size: CGSize) -> CGImageRef {
+    func createColorWheel(_ size: CGSize) -> CGImage {
         // Creates a bitmap of the Hue Saturation wheel
         let originalWidth: CGFloat = size.width
         let originalHeight: CGFloat = size.height
         let dimension: CGFloat = min(originalWidth*scale, originalHeight*scale)
         let bufferLength: Int = Int(dimension * dimension * 4)
         
-        let bitmapData: CFMutableDataRef = CFDataCreateMutable(nil, 0)
+        let bitmapData: CFMutableData = CFDataCreateMutable(nil, 0)
         CFDataSetLength(bitmapData, CFIndex(bufferLength))
         let bitmap = CFDataGetMutableBytePtr(bitmapData)
         
-        for (var y: CGFloat = 0; y < dimension; y++) {
-            for (var x: CGFloat = 0; x < dimension; x++) {
+        for (y: CGFloat in 0 ..< dimension) {
+            for (x: CGFloat in 0 ..< dimension) {
                 var hsv: HSV = (hue: 0, saturation: 0, brightness: 0, alpha: 0)
                 var rgb: RGB = (red: 0, green: 0, blue: 0, alpha: 0)
                 
-                let color = hueSaturationAtPoint(CGPointMake(x, y))
+                let color = hueSaturationAtPoint(CGPoint(x: x, y: y))
                 let hue = color.hue
                 let saturation = color.saturation
                 var a: CGFloat = 0.0
@@ -269,17 +269,17 @@ class ColorWheel: UIView {
         }
         
         // Convert the bitmap to a CGImage
-        let colorSpace: CGColorSpaceRef? = CGColorSpaceCreateDeviceRGB()
-        let dataProvider: CGDataProviderRef? = CGDataProviderCreateWithCFData(bitmapData)
-        let bitmapInfo = CGBitmapInfo(rawValue: CGBitmapInfo.ByteOrderDefault.rawValue | CGImageAlphaInfo.Last.rawValue)
-        let imageRef: CGImageRef? = CGImageCreate(Int(dimension), Int(dimension), 8, 32, Int(dimension) * 4, colorSpace!, bitmapInfo, dataProvider!, nil, false, CGColorRenderingIntent.RenderingIntentDefault)
+        let colorSpace: CGColorSpace? = CGColorSpaceCreateDeviceRGB()
+        let dataProvider: CGDataProvider? = CGDataProvider(data: bitmapData)
+        let bitmapInfo = CGBitmapInfo(rawValue: CGBitmapInfo().rawValue | CGImageAlphaInfo.last.rawValue)
+        let imageRef: CGImage? = CGImage(width: Int(dimension), height: Int(dimension), bitsPerComponent: 8, bitsPerPixel: 32, bytesPerRow: Int(dimension) * 4, space: colorSpace!, bitmapInfo: bitmapInfo, provider: dataProvider!, decode: nil, shouldInterpolate: false, intent: CGColorRenderingIntent.defaultIntent)
         return imageRef!
     }
     //MARK:-获取点上的颜色
-    func hueSaturationAtPoint(position: CGPoint) -> (hue: CGFloat, saturation: CGFloat) {
+    func hueSaturationAtPoint(_ position: CGPoint) -> (hue: CGFloat, saturation: CGFloat) {
         // Get hue and saturation for a given point (x,y) in the wheel
         
-        let c = CGRectGetWidth(wheelLayer.frame) * scale / 2
+        let c = wheelLayer.frame.width * scale / 2
         let dx = CGFloat(position.x - c) / c
         let dy = CGFloat(position.y - c) / c
         let d = sqrt(CGFloat (dx * dx + dy * dy))
@@ -298,18 +298,18 @@ class ColorWheel: UIView {
         return (hue, saturation)
     }
     //MARK:-颜色获取点
-    func pointAtHueSaturation(hue: CGFloat, saturation: CGFloat) -> CGPoint {
+    func pointAtHueSaturation(_ hue: CGFloat, saturation: CGFloat) -> CGPoint {
         // Get a point (x,y) in the wheel for a given hue and saturation
         
         let dimension: CGFloat = min(wheelLayer.frame.width, wheelLayer.frame.height)
         let radius: CGFloat = saturation * dimension / 2
         let x = dimension / 2 + radius * cos(hue * CGFloat(M_PI) * 2)
         let y = dimension / 2 + radius * sin(hue * CGFloat(M_PI) * 2)
-        return CGPointMake(x, y)
+        return CGPoint(x: x, y: y)
     }
     
     //MARK:-设置圆盘的颜色
-    func setViewColor(color: UIColor!) {
+    func setViewColor(_ color: UIColor!) {
         // Update the entire view with a given color
         
         var hue: CGFloat = 0.0, saturation: CGFloat = 0.0, brightness: CGFloat = 0.0, alpha: CGFloat = 0.0
@@ -325,7 +325,7 @@ class ColorWheel: UIView {
     }
     
     //MARK:-设置圆盘的明亮度
-    func setViewBrightness(_brightness: CGFloat) {
+    func setViewBrightness(_ _brightness: CGFloat) {
         // Update the brightness of the view
         
         var hue: CGFloat = 0.0, saturation: CGFloat = 0.0, brightness: CGFloat = 0.0, alpha: CGFloat = 0.0

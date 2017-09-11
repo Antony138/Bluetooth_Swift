@@ -54,18 +54,18 @@ class HNLight: NSObject, NSCoding {
     
     // MARK: NSCoding
     // 编码/固化
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(identifier, forKey: PropertyKey.identifierKey)
-        aCoder.encodeBytes(&brightness, length: sizeof(UInt8), forKey: PropertyKey.brightnessKey)
-        aCoder.encodeBytes(&colorR, length: sizeof(UInt8), forKey: PropertyKey.colorRKey)
-        aCoder.encodeBytes(&colorG, length: sizeof(UInt8), forKey: PropertyKey.colorGKey)
-        aCoder.encodeBytes(&colorB, length: sizeof(UInt8), forKey: PropertyKey.colorBKey)
-        aCoder.encodeObject(name, forKey: PropertyKey.nameKey)
-        aCoder.encodeInt(Int32(groupIndex), forKey: PropertyKey.groupIndexKey)
-        aCoder.encodeBool(isSelected, forKey: PropertyKey.isSelectedKey)
-        aCoder.encodeBool(isGrouped, forKey: PropertyKey.isGroupedKey)
-        aCoder.encodeBool(isOn, forKey: PropertyKey.isOnKey)
-        aCoder.encodeBool(isConnected, forKey: PropertyKey.isConnectedKey)
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(identifier, forKey: PropertyKey.identifierKey)
+        aCoder.encodeBytes(&brightness, length: MemoryLayout<UInt8>.size, forKey: PropertyKey.brightnessKey)
+        aCoder.encodeBytes(&colorR, length: MemoryLayout<UInt8>.size, forKey: PropertyKey.colorRKey)
+        aCoder.encodeBytes(&colorG, length: MemoryLayout<UInt8>.size, forKey: PropertyKey.colorGKey)
+        aCoder.encodeBytes(&colorB, length: MemoryLayout<UInt8>.size, forKey: PropertyKey.colorBKey)
+        aCoder.encode(name, forKey: PropertyKey.nameKey)
+        aCoder.encodeCInt(Int32(groupIndex), forKey: PropertyKey.groupIndexKey)
+        aCoder.encode(isSelected, forKey: PropertyKey.isSelectedKey)
+        aCoder.encode(isGrouped, forKey: PropertyKey.isGroupedKey)
+        aCoder.encode(isOn, forKey: PropertyKey.isOnKey)
+        aCoder.encode(isConnected, forKey: PropertyKey.isConnectedKey)
     }
     
     // 解码/解固
@@ -75,17 +75,17 @@ class HNLight: NSObject, NSCoding {
     required init?(coder aDecoder: NSCoder) {
          // decodeObjectForKey(_:)方法的返回值是AnyObject,所以先要进行类型强转
         // (as!)是forced type cast operator,也就是类型强转(区别(as?)是optional type cast operator)
-        var length  = sizeof(UInt8)
-        identifier  = aDecoder.decodeObjectForKey(PropertyKey.identifierKey) as! String
-        brightness  = aDecoder.decodeBytesForKey(PropertyKey.brightnessKey, returnedLength: &length).memory
-        colorR      = aDecoder.decodeBytesForKey(PropertyKey.colorRKey, returnedLength: &length).memory
-        colorG      = aDecoder.decodeBytesForKey(PropertyKey.colorGKey, returnedLength: &length).memory
-        colorB      = aDecoder.decodeBytesForKey(PropertyKey.colorBKey, returnedLength: &length).memory
-        name        = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
-        groupIndex  = aDecoder.decodeIntegerForKey(PropertyKey.groupIndexKey)
-        isSelected  = aDecoder.decodeBoolForKey(PropertyKey.isSelectedKey)
-        isGrouped   = aDecoder.decodeBoolForKey(PropertyKey.isGroupedKey)
-        isOn        = aDecoder.decodeBoolForKey(PropertyKey.isOnKey)
-        isConnected = aDecoder.decodeBoolForKey(PropertyKey.isConnectedKey)
+        var length  = MemoryLayout<UInt8>.size
+        identifier  = aDecoder.decodeObject(forKey: PropertyKey.identifierKey) as! String
+        brightness  = (aDecoder.decodeBytes(forKey: PropertyKey.brightnessKey, returnedLength: &length)?.pointee)!
+        colorR      = (aDecoder.decodeBytes(forKey: PropertyKey.colorRKey, returnedLength: &length)?.pointee)!
+        colorG      = (aDecoder.decodeBytes(forKey: PropertyKey.colorGKey, returnedLength: &length)?.pointee)!
+        colorB      = (aDecoder.decodeBytes(forKey: PropertyKey.colorBKey, returnedLength: &length)?.pointee)!
+        name        = aDecoder.decodeObject(forKey: PropertyKey.nameKey) as! String
+        groupIndex  = aDecoder.decodeInteger(forKey: PropertyKey.groupIndexKey)
+        isSelected  = aDecoder.decodeBool(forKey: PropertyKey.isSelectedKey)
+        isGrouped   = aDecoder.decodeBool(forKey: PropertyKey.isGroupedKey)
+        isOn        = aDecoder.decodeBool(forKey: PropertyKey.isOnKey)
+        isConnected = aDecoder.decodeBool(forKey: PropertyKey.isConnectedKey)
     }
 }

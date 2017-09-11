@@ -34,14 +34,14 @@ class HNIUL11Store: NSObject {
     }
     
     /// 私有的灯数据
-    private var privateLights: [HNLight]?
+    fileprivate var privateLights: [HNLight]?
     
     // MARK:-
     override init() {
         super.init()
         // 从沙盒中取数据
         // as后面的问号,表示有可能返回一个数组,也有可能返回空值
-        privateLights = NSKeyedUnarchiver.unarchiveObjectWithFile(self.dataArchivePath()) as? [HNLight]
+        privateLights = NSKeyedUnarchiver.unarchiveObject(withFile: self.dataArchivePath()) as? [HNLight]
         print("\(self.dataArchivePath())")
         
         // 沙盒中没有数据,创建之
@@ -59,9 +59,9 @@ class HNIUL11Store: NSObject {
     func dataArchivePath() -> String {
         // 可以将NSSearchPathDirectory、NSSearchPathDomainMask删除
         // 苹果官方写法
-        let doucumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-        let archiveURL = doucumentsDirectory.URLByAppendingPathComponent("lightingControllerData")
-        return archiveURL!.path!
+        let doucumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        let archiveURL = doucumentsDirectory.appendingPathComponent("lightingControllerData")
+        return archiveURL.path
     }
     
     // MARK:保存数据

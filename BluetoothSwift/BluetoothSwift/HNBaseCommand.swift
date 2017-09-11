@@ -22,20 +22,20 @@ let HNChecksumChar9A: UInt8 = 0x9A
 // MOBILE2DEVICE
 enum HNM2DCommands: UInt8 {
     /// 亮度控制指令
-   case HN_COMMAND_BRIGHTNESS   = 0x10
+   case hn_COMMAND_BRIGHTNESS   = 0x10
     /// 颜色控制指令
-   case HN_COMMAND_COLOUR       = 0x11
+   case hn_COMMAND_COLOUR       = 0x11
     /// 请求(同步)数据指令
-   case HN_COMMAND_SYNC_REQUEST = 0x12
+   case hn_COMMAND_SYNC_REQUEST = 0x12
     /// 发送亮度&颜色给硬件,协助硬件保存数据
-   case HN_COMMAND_HLPE_SAVE    = 0x14
+   case hn_COMMAND_HLPE_SAVE    = 0x14
     /// 设置模块名称指令(这条指令没有指定指令号,只有起始位)
-   case HN_COMMAND_SET_NAME     = 0x00
+   case hn_COMMAND_SET_NAME     = 0x00
 }
 
 // DEVICE2MOBILE
 enum HND2MResponses: Int8 {
-    case HN_FEEDBACK_DATA = 0x13
+    case hn_FEEDBACK_DATA = 0x13
 }
 
 // MARK:- Mobile 2 Device

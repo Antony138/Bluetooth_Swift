@@ -278,19 +278,19 @@
 				TargetAttributes = {
 					CF1A302B1C3B98AC002D85B6 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = H2VAN67H99;
-						LastSwiftMigration = 0800;
+						DevelopmentTeam = 3VE476H8XH;
+						LastSwiftMigration = 0830;
 					};
 					CF1A303F1C3B98AC002D85B6 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = H2VAN67H99;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						TestTargetID = CF1A302B1C3B98AC002D85B6;
 					};
 					CF1A304A1C3B98AC002D85B6 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = H2VAN67H99;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						TestTargetID = CF1A302B1C3B98AC002D85B6;
 					};
 				};
@@ -515,13 +515,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = H2VAN67H99;
+				DEVELOPMENT_TEAM = 3VE476H8XH;
 				INFOPLIST_FILE = BluetoothSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Homni.BluetoothSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sae.BluetoothSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -530,13 +530,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = H2VAN67H99;
+				DEVELOPMENT_TEAM = 3VE476H8XH;
 				INFOPLIST_FILE = BluetoothSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Homni.BluetoothSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sae.BluetoothSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -548,7 +548,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Homni.BluetoothSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluetoothSwift.app/BluetoothSwift";
 			};
 			name = Debug;
@@ -561,7 +561,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Homni.BluetoothSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluetoothSwift.app/BluetoothSwift";
 			};
 			name = Release;
@@ -573,7 +573,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Homni.BluetoothSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = BluetoothSwift;
 				USES_XCTRUNNER = YES;
 			};
@@ -586,7 +586,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Homni.BluetoothSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = BluetoothSwift;
 				USES_XCTRUNNER = YES;
 			};

@@ -15,7 +15,7 @@ class HNIUL11Manager: NSObject {
     
     // MARK:- Create Sinaleton/创建单例
     static let shareManager = HNIUL11Manager()
-    private override init() {
+    fileprivate override init() {
         super.init()
         centeralManager = HNCentralManager.init()
         store = HNIUL11Store.init()

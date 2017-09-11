@@ -11,7 +11,7 @@ import UIKit
 
 protocol HNCustomLightButtonDelegate{
     
-    func click(view:HNCustomLightButton,tag:Int)
+    func click(_ view:HNCustomLightButton,tag:Int)
     
 }
 
@@ -52,10 +52,10 @@ class HNCustomLightButton: UIView {
         if self.superview != nil{
         self.translatesAutoresizingMaskIntoConstraints = false
         self.superview!.translatesAutoresizingMaskIntoConstraints = false
-        let leadingConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self.superview, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0.0)
-        let trailingConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: self.superview, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0.0)
-        let topConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.superview, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0.0)
-        let bottomConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.superview, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0.0)
+        let leadingConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: self.superview, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 0.0)
+        let trailingConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: self.superview, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant: 0.0)
+        let topConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self.superview, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 0.0)
+        let bottomConstraint = NSLayoutConstraint.init(item: self, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: self.superview, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: 0.0)
         
         self.superview?.addConstraints([leadingConstraint,trailingConstraint,topConstraint,bottomConstraint])
 
@@ -63,38 +63,38 @@ class HNCustomLightButton: UIView {
     }
     
     //MARK:-设置SelectColorView的背景颜色
-    func setLightColor(color:UIColor){
+    func setLightColor(_ color:UIColor){
        selectColorView.backgroundColor = color
     }
     
     //MARK:-设置GroupsImageView的图片
-    func setLightGroup(image:UIImage){
+    func setLightGroup(_ image:UIImage){
       groupsImageView.image = image
     }
     
     //MARK:-设置群组名字
-    func setLightName(name:String){
+    func setLightName(_ name:String){
        groupsName.text = name
     }
     
     //MARK:-设置View的背景色
-    func setViewBackground(color:UIColor){
+    func setViewBackground(_ color:UIColor){
        self.backgroundColor = color
     }
     
     //MARK:-设置View边界的颜色
     func setViewBorderColor(){
       self.layer.borderWidth = 1
-      self.layer.borderColor = UIColor(red: 0, green: 0.623, blue: 0.909, alpha: 1).CGColor
+      self.layer.borderColor = UIColor(red: 0, green: 0.623, blue: 0.909, alpha: 1).cgColor
     }
     
     func setViewNoBorderColor(){
         self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor(red: 0.254, green: 0.282, blue: 0.313, alpha: 1).CGColor
+        self.layer.borderColor = UIColor(red: 0.254, green: 0.282, blue: 0.313, alpha: 1).cgColor
     }
     
     //MARK:-设置View的明亮度
-    func setViewAlpha(value:CGFloat){
+    func setViewAlpha(_ value:CGFloat){
       self.alpha = value
     }
     
@@ -148,7 +148,7 @@ class HNCustomLightButton: UIView {
     
     //MARK:-设置View的点击事件监听器
     func clickListener(){
-        self.userInteractionEnabled = true
+        self.isUserInteractionEnabled = true
         let singleTap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HNCustomLightButton.clickAction))
         self.addGestureRecognizer(singleTap)
         

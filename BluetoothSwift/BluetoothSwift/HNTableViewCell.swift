@@ -26,16 +26,16 @@ class HNTableViewCell: UITableViewCell {
         //设置选中时的背景
         let selectedBackgroundView = UIView()
         
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+        if UIDevice.current.userInterfaceIdiom == .phone {
             selectedBackgroundView.backgroundColor = UIColor(red: 0.650, green: 0.760, blue: 0.262, alpha: 0.1)
-        }else if UIDevice.currentDevice().userInterfaceIdiom == .Pad{
+        }else if UIDevice.current.userInterfaceIdiom == .pad{
             selectedBackgroundView.backgroundColor = UIColor(red: 0.650, green: 0.760, blue: 0.262, alpha: 1.0)
         }
         
         self.selectedBackgroundView = selectedBackgroundView
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
        
         // Configure the view for the selected state

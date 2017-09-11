@@ -11,7 +11,7 @@ import UIKit
 
 class Light {
    
-    var color:UIColor = UIColor.whiteColor()
+    var color:UIColor = UIColor.white
     var group:Int = 0 //初始化为没有群组
     var name:String = "center"
     var tag:Int = 0
@@ -25,7 +25,7 @@ class Light {
     }
     
     convenience init(tag:Int){
-        self.init(tag:tag,color:UIColor.whiteColor(),group:0,name:"center")
+        self.init(tag:tag,color:UIColor.white,group:0,name:"center")
     }
     
     convenience init(tag:Int,color:UIColor){

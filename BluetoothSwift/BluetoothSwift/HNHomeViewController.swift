@@ -35,16 +35,16 @@ class HNHomeViewController: UIViewController, HNCustomLightButtonDelegate, Swift
     }
 
     // MARK:- HNCustomLightButtonDelegate
-    func click(view: HNCustomLightButton, tag: Int) {
+    func click(_ view: HNCustomLightButton, tag: Int) {
         print("调用了HNCustomLightButtonDelegate中的方法")
     }
     
     // MARK:- SwiftHSVColorPickerDelegate
-    func touchColorWheel(view: SwiftHSVColorPicker, color: UIColor, brightness: CGFloat, colorR: CGFloat, colorG: CGFloat, colorB: CGFloat) {
+    func touchColorWheel(_ view: SwiftHSVColorPicker, color: UIColor, brightness: CGFloat, colorR: CGFloat, colorG: CGFloat, colorB: CGFloat) {
         print("调用SwiftHSVColorPickerDelegate")
     }
     
-    @IBAction func brightnessSliderValueDidChanged(sender: UISlider) {
+    @IBAction func brightnessSliderValueDidChanged(_ sender: UISlider) {
         print("亮度值是\(sender.value)")
         HNIUL11Manager.shareManager.centeralManager.setupLights(["C2552C78-DEB5-9A9F-6823-561AEB438F07"], brightnessValue: (UInt8)(sender.value))
     }
